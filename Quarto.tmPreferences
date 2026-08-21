@@ -6,10 +6,15 @@
 	<string>text.html.markdown.quarto</string>
 	<key>settings</key>
 	<dict>
-		<key>foldingStartMarker</key>
-		<string>^\s*```[^`\s].*$</string>
-		<key>foldingStopMarker</key>
-		<string>^\s*```\s*$</string>
+		<key>foldScopes</key>
+		<array>
+			<dict>
+				<key>begin</key>
+				<string>meta.code-fence.definition.begin</string>
+				<key>end</key>
+				<string>meta.code-fence.definition.end</string>
+			</dict>
+		</array>
 	</dict>
 </dict>
 </plist>

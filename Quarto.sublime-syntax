@@ -1608,14 +1608,18 @@ contexts:
         - meta_content_scope: meta.code-fence.definition.optio.markdown-knitr
         - match: (?=\})
           set:
-            - match: '\}'
-              scope: meta.code-fence.definition.begin.r.markdown-knitr punctuation.definition.raw.code-fence.options.end.markdown meta.fold.begin.markdown-knitr
+            - match: (\})(\s*\n?)
+              scope: meta.code-fence.definition.begin.r.markdown-knitr
+              captures:
+                1: punctuation.definition.raw.code-fence.options.end.markdown
+                2: meta.fold.begin.markdown-knitr
               embed: scope:source.r
               embed_scope: markup.raw.code-fence.r.markdown-knitr
-              escape: '(```)'
+              escape: ^[ \t]*(```)(\n?)
               escape_captures:
-                0: meta.code-fence.definition.end.r.markdown-knitr meta.fold.end.markdown-knitr
+                0: meta.code-fence.definition.end.r.markdown-knitr
                 1: punctuation.definition.raw.code-fence.end.markdown
+                2: meta.fold.end.markdown-knitr
             - match: ''
               pop: true
         - include: scope:source.r
@@ -1630,14 +1634,18 @@ contexts:
         - meta_content_scope: meta.code-fence.definition.options.py.markdown-knitr
         - match: (?=\})
           set:
-            - match: '\}'
-              scope: meta.code-fence.definition.begin.python.markdown-knitr punctuation.definition.raw.code-fence.options.end.markdown meta.fold.begin.markdown-knitr
+            - match: (\})(\s*\n?)
+              scope: meta.code-fence.definition.begin.python.markdown-knitr
+              captures:
+                1: punctuation.definition.raw.code-fence.options.end.markdown
+                2: meta.fold.begin.markdown-knitr
               embed: scope:source.python
               embed_scope: markup.raw.code-fence.python.markdown-knitr
-              escape: '(```)'
+              escape: ^[ \t]*(```)(\n?)
               escape_captures:
-                0: meta.code-fence.definition.end.python.markdown-knitr meta.fold.end.markdown-knitr
+                0: meta.code-fence.definition.end.python.markdown-knitr
                 1: punctuation.definition.raw.code-fence.end.markdown
+                2: meta.fold.end.markdown-knitr
             - match: ''
               pop: true
         - include: scope:source.r
@@ -1652,14 +1660,18 @@ contexts:
         - meta_content_scope: meta.code-fence.definition.options.j.markdown-knitr
         - match: (?=\})
           set:
-            - match: '\}'
-              scope: meta.code-fence.definition.begin.julia.markdown-knitr punctuation.definition.raw.code-fence.options.end.markdown meta.fold.begin.markdown-knitr
+            - match: (\})(\s*\n?)
+              scope: meta.code-fence.definition.begin.julia.markdown-knitr
+              captures:
+                1: punctuation.definition.raw.code-fence.options.end.markdown
+                2: meta.fold.begin.markdown-knitr
               embed: scope:source.julia
               embed_scope: markup.raw.code-fence.julia.markdown-knitr
-              escape: '(```)'
+              escape: ^[ \t]*(```)(\n?)
               escape_captures:
-                0: meta.code-fence.definition.end.julia.markdown-knitr meta.fold.end.markdown-knitr
+                0: meta.code-fence.definition.end.julia.markdown-knitr
                 1: punctuation.definition.raw.code-fence.end.markdown
+                2: meta.fold.end.markdown-knitr
             - match: ''
               pop: true
         - include: scope:source.r
@@ -1674,14 +1686,18 @@ contexts:
         - meta_content_scope: meta.code-fence.definition.options.markdown-knitr
         - match: (?=\})
           set:
-            - match: '\}'
-              scope: meta.code-fence.definition.begin.sql.markdown-knitr punctuation.definition.raw.code-fence.options.end.markdown meta.fold.begin.markdown-knitr
+            - match: (\})(\s*\n?)
+              scope: meta.code-fence.definition.begin.sql.markdown-knitr
+              captures:
+                1: punctuation.definition.raw.code-fence.options.end.markdown
+                2: meta.fold.begin.markdown-knitr
               embed: scope:source.sql
               embed_scope: markup.raw.code-fence.sql.markdown-knitr
-              escape: '(```)'
+              escape: ^[ \t]*(```)(\n?)
               escape_captures:
-                0: meta.code-fence.definition.end.sql.markdown-knitr meta.fold.end.markdown-knitr
+                0: meta.code-fence.definition.end.sql.markdown-knitr
                 1: punctuation.definition.raw.code-fence.end.markdown
+                2: meta.fold.end.markdown-knitr
             - match: ''
               pop: true
         - include: scope:source.r
@@ -1696,14 +1712,18 @@ contexts:
         - meta_content_scope: meta.code-fence.definition.options..markdown-knitr
         - match: (?=\})
           set:
-            - match: '\}'
-              scope: meta.code-fence.definition.begin.bash.markdown-knitr punctuation.definition.raw.code-fence.options.end.markdown meta.fold.begin.markdown-knitr
+            - match: (\})(\s*\n?)
+              scope: meta.code-fence.definition.begin.bash.markdown-knitr
+              captures:
+                1: punctuation.definition.raw.code-fence.options.end.markdown
+                2: meta.fold.begin.markdown-knitr
               embed: scope:source.shell.bash
               embed_scope: markup.raw.code-fence.bash.markdown-knitr
-              escape: '(```)'
+              escape: ^[ \t]*(```)(\n?)
               escape_captures:
-                0: meta.code-fence.definition.end.bash.markdown-knitr meta.fold.end.markdown-knitr
+                0: meta.code-fence.definition.end.bash.markdown-knitr
                 1: punctuation.definition.raw.code-fence.end.markdown
+                2: meta.fold.end.markdown-knitr
             - match: ''
               pop: true
         - include: scope:source.r
@@ -1718,14 +1738,18 @@ contexts:
         - meta_content_scope: meta.code-fence.definition.options..markdown-knitr
         - match: (?=\})
           set:
-            - match: '\}'
-              scope: meta.code-fence.definition.begin.bash.markdown-knitr punctuation.definition.raw.code-fence.options.end.markdown meta.fold.begin.markdown-knitr
+            - match: (\})(\s*\n?)
+              scope: meta.code-fence.definition.begin.bash.markdown-knitr
+              captures:
+                1: punctuation.definition.raw.code-fence.options.end.markdown
+                2: meta.fold.begin.markdown-knitr
               embed: scope:source.c++
               embed_scope: markup.raw.code-fence.bash.markdown-knitr
-              escape: '(```)'
+              escape: ^[ \t]*(```)(\n?)
               escape_captures:
-                0: meta.code-fence.definition.end.bash.markdown-knitr meta.fold.end.markdown-knitr
+                0: meta.code-fence.definition.end.bash.markdown-knitr
                 1: punctuation.definition.raw.code-fence.end.markdown
+                2: meta.fold.end.markdown-knitr
             - match: ''
               pop: true
         - include: scope:source.r
