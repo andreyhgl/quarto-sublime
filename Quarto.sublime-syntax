@@ -183,22 +183,26 @@ contexts:
     - match: ""
       set: body
   front-matter:
-    - match: ^\s*(---)\s*$
+    - match: ^\s*(---)[ \t]*($\n?)
       captures:
         1: punctuation.definition.frontmatter
+        2: meta.fold.begin.markdown
       embed: scope:source.yaml
       embed_scope: markup.raw.yaml.front-matter
-      escape: ^\s*(---)\s*$
+      escape: ^\s*(---)[ \t]*($\n?)
       escape_captures:
           1: punctuation.definition.frontmatter
-    - match: ^\s*(\+\+\+)\s*$
+          2: meta.fold.end.markdown
+    - match: ^\s*(\+\+\+)[ \t]*($\n?)
       captures:
         1: punctuation.definition.frontmatter
+        2: meta.fold.begin.markdown
       embed: scope:source.toml
       embed_scope: markup.raw.toml.front-matter
-      escape: ^\s*(\+\+\+)\s*$
+      escape: ^\s*(\+\+\+)[ \t]*($\n?)
       escape_captures:
           1: punctuation.definition.frontmatter
+          2: meta.fold.end.markdown
     - match: ""
       pop: true
       set: body
