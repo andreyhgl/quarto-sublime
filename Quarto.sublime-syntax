@@ -1738,7 +1738,7 @@ contexts:
         2: constant.other.language-name.markdown
       push:
         - meta_scope: markup.raw.inline.markdown-knitr
-        - meta_content_scope: source.r
+        - meta_content_scope: source.r.embedded.markdown-knitr
         - match: \1(?!`)
           scope: punctuation.definition.raw.end.markdown
           pop: true
@@ -1746,7 +1746,7 @@ contexts:
         - match: ^\s*$\n?
           scope: invalid.illegal.non-terminated.raw.markdown
           pop: true
-        - include: scope:source.r
+        - include: scope:source.r#statements
 
   latex-math:
     - match: \\\$
