@@ -10,21 +10,27 @@
 		<array>
 			<dict>
 				<key>begin</key>
-				<string>meta.code-fence.definition.begin</string>
+				<string>meta.fold.begin.markdown-knitr</string>
 				<key>end</key>
-				<string>meta.code-fence.definition.end</string>
+				<string>meta.fold.end.markdown-knitr</string>
 			</dict>
 			<dict>
 				<key>begin</key>
-				<string>meta.fenced-div.definition.begin</string>
+				<string>meta.fold.begin.markdown-gfm</string>
 				<key>end</key>
-				<string>meta.fenced-div.definition.end</string>
+				<string>meta.fold.end.markdown-gfm</string>
 			</dict>
 			<dict>
 				<key>begin</key>
-				<string>meta.fold.begin</string>
+				<string>meta.fold.begin.markdown-quarto</string>
 				<key>end</key>
-				<string>meta.fold.end</string>
+				<string>meta.fold.end.markdown-quarto</string>
+			</dict>
+			<dict>
+				<key>begin</key>
+				<string>meta.fold.begin.markdown</string>
+				<key>end</key>
+				<string>meta.fold.end.markdown</string>
 			</dict>
 		</array>
 	</dict>
