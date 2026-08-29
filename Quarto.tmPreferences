@@ -22,21 +22,21 @@
 			</dict>
 			<dict>
 				<key>begin</key>
-				<string>meta.fold.begin.markdown-quarto</string>
-				<key>end</key>
-				<string>meta.fold.end.markdown-quarto</string>
-			</dict>
-			<dict>
-				<key>begin</key>
-				<string>meta.fold.begin.markdown-quarto-outer</string>
-				<key>end</key>
-				<string>meta.fold.end.markdown-quarto-outer</string>
-			</dict>
-			<dict>
-				<key>begin</key>
 				<string>meta.fold.begin.markdown</string>
 				<key>end</key>
 				<string>meta.fold.end.markdown</string>
+			</dict>
+			<dict>
+				<key>begin</key>
+				<string>meta.fenced-div.definition.begin.markdown-quarto</string>
+				<key>end</key>
+				<string>meta.fenced-div.definition.end.markdown-quarto</string>
+			</dict>
+			<dict>
+				<key>begin</key>
+				<string>meta.fenced-div.definition.begin.markdown-quarto-outer</string>
+				<key>end</key>
+				<string>meta.fenced-div.definition.end.markdown-quarto-outer</string>
 			</dict>
 		</array>
 	</dict>
