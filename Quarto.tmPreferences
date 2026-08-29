@@ -16,6 +16,12 @@
 			</dict>
 			<dict>
 				<key>begin</key>
+				<string>meta.fenced-div.definition.begin</string>
+				<key>end</key>
+				<string>meta.fenced-div.definition.end</string>
+			</dict>
+			<dict>
+				<key>begin</key>
 				<string>meta.fold.begin</string>
 				<key>end</key>
 				<string>meta.fold.end</string>
