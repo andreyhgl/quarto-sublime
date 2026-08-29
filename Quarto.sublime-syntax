@@ -207,17 +207,28 @@ contexts:
       pop: true
       set: body
   body:
-    - match: ^[ ]{0,3}(:{3,})[ \t]*([^\s:].*?)[ \t]*($\n?)
+    - match: ^[ ]{0,3}(:{3})(?!:)[ \t]*([^\s:].*?)[ \t]*($\n?)
       scope: meta.fenced-div.definition.begin.markdown-quarto
       captures:
         1: punctuation.definition.fenced-div.begin.markdown-quarto
         2: meta.attributes.fenced-div.markdown-quarto
         3: meta.fold.begin.markdown-quarto
-    - match: ^[ ]{0,3}(:{3,})[ \t]*($\n?)
+    - match: ^[ ]{0,3}(:{3})(?!:)[ \t]*($\n?)
       scope: meta.fenced-div.definition.end.markdown-quarto
       captures:
         1: punctuation.definition.fenced-div.end.markdown-quarto
         2: meta.fold.end.markdown-quarto
+    - match: ^[ ]{0,3}(:{4,})[ \t]*([^\s:].*?)[ \t]*($\n?)
+      scope: meta.fenced-div.definition.begin.markdown-quarto-outer
+      captures:
+        1: punctuation.definition.fenced-div.begin.markdown-quarto
+        2: meta.attributes.fenced-div.markdown-quarto
+        3: meta.fold.begin.markdown-quarto-outer
+    - match: ^[ ]{0,3}(:{4,})[ \t]*($\n?)
+      scope: meta.fenced-div.definition.end.markdown-quarto-outer
+      captures:
+        1: punctuation.definition.fenced-div.end.markdown-quarto
+        2: meta.fold.end.markdown-quarto-outer
     - match: |-
         (?x)^
         (?=  {{block_quote}}

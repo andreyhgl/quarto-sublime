@@ -28,6 +28,12 @@
 			</dict>
 			<dict>
 				<key>begin</key>
+				<string>meta.fold.begin.markdown-quarto-outer</string>
+				<key>end</key>
+				<string>meta.fold.end.markdown-quarto-outer</string>
+			</dict>
+			<dict>
+				<key>begin</key>
 				<string>meta.fold.begin.markdown</string>
 				<key>end</key>
 				<string>meta.fold.end.markdown</string>
