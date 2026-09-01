@@ -26,6 +26,12 @@
 				<key>end</key>
 				<string>meta.fold.end.markdown</string>
 			</dict>
+			<dict>
+				<key>begin</key>
+				<string>meta.fold.begin.markdown-quarto</string>
+				<key>end</key>
+				<string>meta.fold.end.markdown-quarto</string>
+			</dict>
 		</array>
 	</dict>
 </dict>
