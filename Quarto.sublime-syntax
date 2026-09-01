@@ -225,6 +225,12 @@ contexts:
       scope: meta.fenced-div.definition.end.markdown-quarto-outer
       captures:
         1: punctuation.definition.fenced-div.end.markdown-quarto
+    - match: '^(?={{fenced_code_block_start}})'
+      push:
+        - include: fenced-code-block-knitr
+        - include: fenced-code-block
+        - match: ''
+          pop: true
     - match: |-
         (?x)^
         (?=  {{block_quote}}
@@ -330,6 +336,7 @@ contexts:
             |   (?=
                     {{block_quote}}      # a block quote begins the line
                 |   [ ]{,3}:{3,}         # a fenced div delimiter begins the line
+                |   [ ]{,3}(?:`{3,}|~{3,})  # a fenced code block begins the line
                 |   [ ]{,3}[*+-][ ]      # an unordered list item begins the line
                 |   [ ]{,3}1[.][ ]       # an ordered list item with number "1" begins the line
                 |   \#                   # an ATX heading begins the line
@@ -1851,4 +1858,49 @@ contexts:
       push:
         - meta_scope: text.tex.latex meta.environment.math.latex
         - include: scope:text.tex.latex#macros
-       
+        - include: math-content
+        - match: \$
+          scope: string.other.math.latex punctuation.definition.string.end.latex
+          pop: true
+    - match: '(?=\\begin\{\s*(equation|align)\s*\*?\s*\})'
+      push:
+        - include: math-content
+        - match: '(?=\S)'
+          pop: true
+
+  math-braces:
+    - match: '\{'
+      scope: punctuation.definition.group.brace.begin.latex
+      push:
+        - meta_scope: meta.group.brace.latex
+        - match: '\}'
+          scope: punctuation.definition.group.brace.end.latex
+          pop: true
+        - include: math-content
+
+  math-content:
+    - include: code-span-knitr
+    - include: scope:text.tex.latex#verb
+    - include: scope:text.tex.latex#text-decorators
+    - include: scope:text.tex.latex#references
+    - include: scope:text.tex.latex#begin-end-commands
+    - include: scope:text.tex#greeks
+    - include: scope:text.tex#math-brackets
+    - include: math-braces
+    - include: scope:text.tex.latex#boxes
+    - include: scope:text.tex#math-commands
+    - include: scope:text.tex#math-operators
+    - include: scope:text.tex#math-characters
+    - include: scope:text.tex#math-numerics
+    - include: scope:text.tex.latex#general-constants
+
+
+###[ PROTOTYPES ]#############################################################
+
+  else-pop:
+    - match: (?=\S)
+      pop: true
+
+  immediately-pop:
+    - match: ''
+      pop: true
