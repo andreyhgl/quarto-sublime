@@ -1645,7 +1645,12 @@ contexts:
                 2: meta.fold.end.markdown-knitr
             - match: ''
               pop: true
-        - include: scope:source.r
+        - match: '"[^"\n]*"'
+          scope: string.quoted.double.markdown-knitr
+        - match: "'[^'\\n]*'"
+          scope: string.quoted.single.markdown-knitr
+        - match: '[^{}\n]+'
+          scope: meta.code-fence.definition.options.value.markdown-knitr
 
     - match: (```)(\{)(python)\b
       captures:
@@ -1671,7 +1676,12 @@ contexts:
                 2: meta.fold.end.markdown-knitr
             - match: ''
               pop: true
-        - include: scope:source.r
+        - match: '"[^"\n]*"'
+          scope: string.quoted.double.markdown-knitr
+        - match: "'[^'\\n]*'"
+          scope: string.quoted.single.markdown-knitr
+        - match: '[^{}\n]+'
+          scope: meta.code-fence.definition.options.value.markdown-knitr
 
     - match: (```)(\{)(julia)\b
       captures:
@@ -1697,7 +1707,12 @@ contexts:
                 2: meta.fold.end.markdown-knitr
             - match: ''
               pop: true
-        - include: scope:source.r
+        - match: '"[^"\n]*"'
+          scope: string.quoted.double.markdown-knitr
+        - match: "'[^'\\n]*'"
+          scope: string.quoted.single.markdown-knitr
+        - match: '[^{}\n]+'
+          scope: meta.code-fence.definition.options.value.markdown-knitr
 
     - match: (```)(\{)(sql)\b
       captures:
@@ -1723,7 +1738,12 @@ contexts:
                 2: meta.fold.end.markdown-knitr
             - match: ''
               pop: true
-        - include: scope:source.r
+        - match: '"[^"\n]*"'
+          scope: string.quoted.double.markdown-knitr
+        - match: "'[^'\\n]*'"
+          scope: string.quoted.single.markdown-knitr
+        - match: '[^{}\n]+'
+          scope: meta.code-fence.definition.options.value.markdown-knitr
 
     - match: (```)(\{)(bash|sh)\b
       captures:
@@ -1749,7 +1769,12 @@ contexts:
                 2: meta.fold.end.markdown-knitr
             - match: ''
               pop: true
-        - include: scope:source.r
+        - match: '"[^"\n]*"'
+          scope: string.quoted.double.markdown-knitr
+        - match: "'[^'\\n]*'"
+          scope: string.quoted.single.markdown-knitr
+        - match: '[^{}\n]+'
+          scope: meta.code-fence.definition.options.value.markdown-knitr
 
     - match: (```)(\{)(Rcpp)\b
       captures:
@@ -1775,7 +1800,12 @@ contexts:
                 2: meta.fold.end.markdown-knitr
             - match: ''
               pop: true
-        - include: scope:source.r
+        - match: '"[^"\n]*"'
+          scope: string.quoted.double.markdown-knitr
+        - match: "'[^'\\n]*'"
+          scope: string.quoted.single.markdown-knitr
+        - match: '[^{}\n]+'
+          scope: meta.code-fence.definition.options.value.markdown-knitr
 
 
   code-span-knitr:
@@ -1821,51 +1851,4 @@ contexts:
       push:
         - meta_scope: text.tex.latex meta.environment.math.latex
         - include: scope:text.tex.latex#macros
-        - include: math-content
-        - match: \$
-          scope: string.other.math.latex punctuation.definition.string.end.latex
-          pop: true
-    - match: '(?=\\begin\{\s*(equation|align)\s*\*?\s*\})'
-      push:
-        - include: math-content
-        - match: '(?=\S)'
-          pop: true
-
-  math-braces:
-    - match: '\{'
-      scope: punctuation.definition.group.brace.begin.latex
-      push:
-        - meta_scope: meta.group.brace.latex
-        - match: '\}'
-          scope: punctuation.definition.group.brace.end.latex
-          pop: true
-        - include: math-content
-
-  math-content:
-    - include: code-span-knitr
-    - include: scope:text.tex.latex#verb
-    - include: scope:text.tex.latex#text-decorators
-    - include: scope:text.tex.latex#references
-    - include: scope:text.tex.latex#begin-end-commands
-    - include: scope:text.tex#greeks
-    - include: scope:text.tex#math-brackets
-    - include: math-braces
-    - include: scope:text.tex.latex#boxes
-    - include: scope:text.tex#math-commands
-    - include: scope:text.tex#math-operators
-    - include: scope:text.tex#math-characters
-    - include: scope:text.tex#math-numerics
-    - include: scope:text.tex.latex#general-constants
-
-
-###[ PROTOTYPES ]#############################################################
-
-  else-pop:
-    - match: (?=\S)
-      pop: true
-
-  immediately-pop:
-    - match: ''
-      pop: true
-
-
+       
