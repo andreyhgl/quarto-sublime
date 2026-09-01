@@ -214,6 +214,7 @@ contexts:
         2: meta.attributes.fenced-div.markdown-quarto
         3: meta.fold.begin.markdown-quarto
       push:
+        - meta_content_scope: meta.fenced-div.content.markdown-quarto
         - match: ^[ ]{0,3}(\1)[ \t]*($\n?)
           scope: meta.fenced-div.definition.end.markdown-quarto
           captures:
